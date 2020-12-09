@@ -2,9 +2,23 @@ body{
     background-color: #FCFCFC;
 }
 
-main{
+header,
+main
+{
     width: 95%;
     margin: 0 auto;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+h1{
+    color: #4A4A4A;
 }
 
 .employees{
@@ -20,12 +34,29 @@ main{
     background-color: #fff;
     display: flex;
     align-items: center;
+    width: 400px;
     margin: 20px;
     padding: 10px 20px;
+    transition: border-color linear .2s ;
+}
+
+.employee-container:hover{
+    border-color: skyblue;
 }
 
 .employee-image{
     border-radius: 50%;
     height: 150px;
     margin-right: 20px;
+}
+
+.employee-name{
+    color: #404A51;
+    margin: 5px 0;
+}
+
+.employee-email,
+.employee-city{
+    color: #B2B5B8;
+    margin: 5px 0;
 }
