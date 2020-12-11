@@ -1,4 +1,13 @@
 // ------------------------------------------
+//  Variables
+// ------------------------------------------
+const randomUsersURL = 'https://randomuser.me/api/?results=12'
+const employees = document.querySelector('.employees');
+
+
+
+
+// ------------------------------------------
 //  FETCH FUNCTIONS
 // ------------------------------------------
 
@@ -9,7 +18,16 @@ function fetchData(url) {
              .catch(error => console.log('Looks like there was a problem!', error))
   }
 
-  fetchData('https://randomuser.me/api/')
+  fetchData(randomUsersURL)
+    .then(data => { 
+        const results = data.results;
+
+        for (const user of results){
+            console.log(user)
+            generateEmployee(user)
+        }
+        console.log(results);
+    })
 
 
 // ------------------------------------------
@@ -22,4 +40,19 @@ function checkStatus(response) {
     } else {
       return Promise.reject(new Error(response.statusText));
     }
+  }
+
+  function generateEmployee(data) {
+    const createLI = document.createElement("LI");
+    createLI.className = "employee-container";
+    const user = `
+    <img class="employee-image" src="${data.picture.large}">
+    <div class="employee-details">
+        <h2 class="employee-name">${data.name.first} ${data.name.last}</h2>
+        <p class="employee-email">${data.email}</p>
+        <p class="employee-city">${data.location.city}</p>
+    </div>
+    `;
+    createLI.innerHTML = user;
+    employees.appendChild(createLI)
   }
