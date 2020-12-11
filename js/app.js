@@ -8,6 +8,8 @@ const modalClose = document.querySelector('.modal-close');
 const modalNext = document.querySelector('.modal-next');
 const modalPrev = document.querySelector('.modal-prev');
 const modalContent = document.querySelector('.modal-content');
+const search = document.getElementById('search')
+
 let employeeArray
 
 // ------------------------------------------
@@ -113,7 +115,10 @@ employees.addEventListener('click', (e) => {
     displayModal(index);
   })
 
-  document.addEventListener('keydown', (e) =>{
+  //Attempted Event listener for key presses but causing a bug.
+  //Will look into later as not required to pass the unit
+
+  /*document.addEventListener('keydown', (e) =>{
     if (e.code === 'ArrowLeft'){
       index--
       displayModal(index);
@@ -121,7 +126,7 @@ employees.addEventListener('click', (e) => {
       index++
       displayModal(index);
     }
-  })
+  })*/
   
   }
 
@@ -134,3 +139,19 @@ modalClose.addEventListener('click', (e) => {
   modalNext.classList.remove('hidden')
   modalPrev.classList.remove('hidden')
 })
+
+search.addEventListener('keyup', e => {
+  const searchEmployee = e.target.value.toLowerCase();
+  const employeeContainer = document.querySelectorAll('.employee-container');
+
+  for (let i = 0; i < employeeContainer.length; i++) {
+    const employeeName = document.querySelectorAll('.employee-name');
+    const name = employeeName[i].innerText.toLowerCase();
+
+    if (name.includes(searchEmployee)) {
+      employeeContainer[i].style.display = '';
+    } else {
+      employeeContainer[i].style.display = 'none';
+    }
+  }
+});
