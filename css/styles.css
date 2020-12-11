@@ -27,7 +27,7 @@ h1{
 }
 
 .overlay{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -44,7 +44,7 @@ h1{
     background: #fff;
     border: 1px solid #778;
     border-radius: 5px;
-    padding
+    padding: 30px 20px;
 }
 
 .modal-close{
