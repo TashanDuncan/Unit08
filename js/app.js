@@ -29,11 +29,9 @@ function fetchData(url) {
         let userNumber = 0;
         for (const user of results){
             user.userNumber = userNumber;
-            console.log(user)
             generateEmployee(user)
             userNumber++
         }
-        console.log(results);
         employeeArray = results;
     })
 
