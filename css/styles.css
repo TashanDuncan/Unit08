@@ -53,6 +53,25 @@ h1{
     top: 5px;
     cursor: pointer;
 }
+
+.modal-next{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+}
+
+
+.modal-prev{
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+}
     
 
 .employees{
@@ -81,19 +100,41 @@ h1{
     cursor: pointer;
 }
 
-.employee-image{
+.employee-image,
+.modal-avatar
+{
     border-radius: 50%;
     height: 150px;
+}
+
+.employee-image{
     margin-right: 20px;
 }
 
-.employee-name{
+.employee-name,
+.modal-name
+{
     color: #404A51;
     margin: 5px 0;
 }
 
 .employee-email,
-.employee-city{
-    color: #B2B5B8;
+.employee-city
+{
+    color: #989b9e;
     margin: 5px 0;
+}
+
+.modal-email,
+.modal-city,
+.modal-number,
+.modal-address,
+.modal-birthday
+{
+    color: #989b9e;
+    margin: 10px 0;
+}
+
+hr{
+    margin: 30px 0
 }

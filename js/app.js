@@ -75,9 +75,9 @@ function displayModal(index) {
       <p class="modal-email">${employeeArray[index].email}</p>
       <p class="modal-city">${employeeArray[index].location.city}</p>
       <hr/>
-      <p>${employeeArray[index].cell}</p>
+      <p class="modal-number">${employeeArray[index].cell}</p>
       <p class="modal-address">${employeeArray[index].location.street.number} ${employeeArray[index].location.street.name}, ${employeeArray[index].location.state} ${employeeArray[index].location.postcode}</p>
-      <p>Birthday: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
+      <p class="modal-birthday">Birthday: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
   </div>`
   modalContent.innerHTML = display;
 }
