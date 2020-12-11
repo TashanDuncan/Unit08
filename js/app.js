@@ -5,6 +5,8 @@ const randomUsersURL = 'https://randomuser.me/api/?results=12';
 const employees = document.querySelector('.employees');
 const modal = document.getElementById('modal');
 const modalClose = document.querySelector('.modal-close');
+const modalNext = document.querySelector('.modal-next');
+const modalPrev = document.querySelector('.modal-prev');
 const modalContent = document.querySelector('.modal-content');
 let employeeArray
 
@@ -77,9 +79,18 @@ function displayModal(index) {
       <hr/>
       <p class="modal-number">${employeeArray[index].cell}</p>
       <p class="modal-address">${employeeArray[index].location.street.number} ${employeeArray[index].location.street.name}, ${employeeArray[index].location.state} ${employeeArray[index].location.postcode}</p>
-      <p class="modal-birthday">Birthday: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
+      <p class="modal-birthday">Birthday: ${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}</p>
   </div>`
   modalContent.innerHTML = display;
+
+  if(index === 0){
+    modalPrev.classList.add('hidden')
+  } else if(index >= 11){
+    modalNext.classList.add('hidden')
+  } else {
+    modalNext.classList.remove('hidden')
+    modalPrev.classList.remove('hidden')
+  }
 }
 
 
@@ -87,13 +98,39 @@ employees.addEventListener('click', (e) => {
   const event = e.target
   if(event !== employees){
   const card = event.closest('.employee-container')
-  const index = card.getAttribute('data-index')
+  let indexString = card.getAttribute('data-index')
+  let index = parseInt(indexString)
   displayModal(index);
+
   modal.classList.remove('hidden');
+
+  modalNext.addEventListener('click', () => {
+    index++
+    displayModal(index);
+  })
+  modalPrev.addEventListener('click', () => {
+    index--
+    displayModal(index);
+  })
+
+  document.addEventListener('keydown', (e) =>{
+    if (e.code === 'ArrowLeft'){
+      index--
+      displayModal(index);
+    } else if(e.code === 'ArrowRight'){
+      index++
+      displayModal(index);
+    }
+  })
+  
   }
+
+
 
 })
 
 modalClose.addEventListener('click', (e) => {
   e.target.parentNode.parentNode.classList.add('hidden')
+  modalNext.classList.remove('hidden')
+  modalPrev.classList.remove('hidden')
 })
