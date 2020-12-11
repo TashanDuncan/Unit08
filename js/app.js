@@ -1,9 +1,10 @@
 // ------------------------------------------
 //  Variables
 // ------------------------------------------
-const randomUsersURL = 'https://randomuser.me/api/?results=12'
+const randomUsersURL = 'https://randomuser.me/api/?results=12';
 const employees = document.querySelector('.employees');
-const modal = document.getElementById('modal')
+const modal = document.getElementById('modal');
+const modalClose = document.querySelector('.modal-close');
 
 
 // ------------------------------------------
@@ -66,5 +67,9 @@ employees.addEventListener('click', (e) => {
   if(event !== employees){
   modal.classList.remove('hidden');
   }
-  
+
+})
+
+modalClose.addEventListener('click', (e) => {
+  e.target.parentNode.parentNode.classList.add('hidden')
 })
