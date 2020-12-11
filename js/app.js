@@ -3,8 +3,7 @@
 // ------------------------------------------
 const randomUsersURL = 'https://randomuser.me/api/?results=12'
 const employees = document.querySelector('.employees');
-
-
+const modal = document.getElementById('modal')
 
 
 // ------------------------------------------
@@ -56,3 +55,16 @@ function checkStatus(response) {
     createLI.innerHTML = user;
     employees.appendChild(createLI)
   }
+
+
+// ------------------------------------------
+//  Modal FUNCTIONS
+// ------------------------------------------
+
+employees.addEventListener('click', (e) => {
+  const event = e.target
+  if(event !== employees){
+  modal.classList.remove('hidden');
+  }
+  
+})
