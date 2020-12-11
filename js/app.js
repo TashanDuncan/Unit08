@@ -67,16 +67,17 @@ function checkStatus(response) {
 // ------------------------------------------
 
 function displayModal(index) {
+  const date = new Date(employeeArray[index].dob.date)
   const display = `                
   <img class="modal-avatar" src="${employeeArray[index].picture.large}" />
   <div class="modal-text-container">
-      <h2 class="modal-name">Haleigh Macchiarella</h2>
-      <p class="modal-email">dtucker@yakitri.edu</p>
-      <p class="modal-city">Chicago</p>
+      <h2 class="modal-name">${employeeArray[index].name.first} ${employeeArray[index].name.last}</h2>
+      <p class="modal-email">${employeeArray[index].email}</p>
+      <p class="modal-city">${employeeArray[index].location.city}</p>
       <hr/>
-      <p>(593) 364-3249</p>
-      <p class="modal-address">123 Anywhere St, WV 84814</p>
-      <p>Birthday: 01/04/85</p>
+      <p>${employeeArray[index].cell}</p>
+      <p class="modal-address">${employeeArray[index].location.street.number} ${employeeArray[index].location.street.name}, ${employeeArray[index].location.state} ${employeeArray[index].location.postcode}</p>
+      <p>Birthday: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()}</p>
   </div>`
   modalContent.innerHTML = display;
 }
