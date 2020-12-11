@@ -9,7 +9,7 @@ const employees = document.querySelector('.employees');
 
 // ------------------------------------------
 //  FETCH FUNCTIONS
-// ------------------------------------------
+// ------------------------------------------ 
 
 function fetchData(url) {
     return fetch(url)
